@@ -12,14 +12,16 @@
 ![test publish message](img/4_mqtt_publish.png)
 ![reading message](img/5_mqtt_receive.png)
 * You can add a script to publish router info to the mqtt broker.
-![create script](6_script.png)
+![create script](img/6_script.png)
+* run the script and get the result
+![run script](img/7_run_script.png)
 
 ```
 ################################ Configuration ################################
 # Name of an existing MQTT broker that should be used for publishing
 :local broker "panu.it"
 # MQTT topic where the message should be published
-:local topic "javascript/microtik"
+:local topic "javascript/mikrotic"
 :put ("[*] Gathering system info...")
 :local cpuLoad [/system resource get cpu-load]
 :local freeMemory [/system resource get free-memory]
@@ -47,6 +49,7 @@ iot mqtt publish broker=$broker topic=$topic message=$message
 # for debug purpose
 #:put $message
 ```
+
 
 
 

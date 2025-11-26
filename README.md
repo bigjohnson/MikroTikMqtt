@@ -10,7 +10,7 @@
 * Test the mqtt broker connection publish something
 * You cann add a script to publish router info to the mqtt broker.
 
-`
+```
 ################################ Configuration ################################
 # Name of an existing MQTT broker that should be used for publishing
 :local broker "panu.it"
@@ -42,5 +42,6 @@ iot mqtt publish broker=$broker topic=$topic message=$message
 :put ("[*] Done")
 # for debug purpose
 #:put $message
-`
+```
+
 

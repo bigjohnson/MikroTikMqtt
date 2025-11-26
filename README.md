@@ -6,7 +6,7 @@
 * The installation will restart the router.
 * In the IoT/MQTT menu add a broker.
 ![adding broker](img/2_broker.png)
-* If your broker has SSL you can enable it, but you need trust the root certificates for many common certificate authorities in the System/certificate/settings menu.
+* If your broker has SSL and a cert root signed SSL certificate you can enable it, but you need trust the root certificates for many common certificate authorities in the System/certificate/settings menu.
 ![enable ssl root certs](img/3_certificates.png)
 * Test the mqtt broker connection publish something.
 ![test publish message](img/4_mqtt_publish.png)
@@ -49,6 +49,7 @@ iot mqtt publish broker=$broker topic=$topic message=$message
 # for debug purpose
 #:put $message
 ```
+
 
 
 

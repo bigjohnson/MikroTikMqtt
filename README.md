@@ -79,7 +79,25 @@ iot mqtt publish broker=$broker topic=$topic message=$message
 
 # Telegraf
 
+add the file mikrotik.conf on the /etc/telegraf/telegraf.d/
 
+```
+[[inputs.mqtt_consumer]]
+#servers = ["tcp://127.0.0.1:1883"]
+servers = ["mosquitto.siziano.panu.it:1883"]
+topics = [
+  "microtik/#"
+]
+tag_keys = [
+  "location",
+  "model",
+  "sn",
+  "ros"
+]
+name_override = "mikrotik"
+username = "user"
+password = "password"
+```
 
 
 

@@ -84,7 +84,7 @@ add the file mikrotik.conf on the /etc/telegraf/telegraf.d/
 ```
 [[inputs.mqtt_consumer]]
 #servers = ["tcp://127.0.0.1:1883"]
-servers = ["mosquitto.siziano.panu.it:1883"]
+servers = ["panu.it:1883"]
 topics = [
   "microtik/#"
 ]
@@ -102,6 +102,7 @@ password = "password"
 # Grafana
 
 https://grafana.panu.it/d/adq7pbn/routers?orgId=1&from=now-6h&to=now&timezone=browser&refresh=30s
+
 
 
 

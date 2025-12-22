@@ -24,7 +24,7 @@ mqttpublish script content
 :local broker "panu.it"
 
 # MQTT topic where the message should be published
-:local topic "microtik/firewallname"
+:local topic "microtik/firewallcasa"
 :put ("[*] Gathering system info...")
 :local cpuLoad [/system resource get cpu-load]
 :local freeMemory [/system resource get free-memory]
@@ -35,6 +35,15 @@ mqttpublish script content
 :local upTime [/system resource get uptime]
 
 :local m 1048576
+
+:local cputemp [/system health get [find where name=cpu-temperature] value]
+:local temperature [/system health get [find where name=temperature] value]
+:local power [/system health get [find where name=power-consumption] value]
+:local voltage [/system health get [find where name=voltage] value]
+:local current [/system health get [find where name=current] value]
+:local fan1 [/system health get [find where name=fan1-speed] value]
+:local psu1 [/system health get [find where name=psu1-state] value]
+:local psu2 [/system health get [find where name=psu2-state] value]
 
 :local WANtx [/interface/get WAN tx-byte]
 :local WANrx [/interface/get WAN rx-byte]
@@ -50,7 +59,7 @@ mqttpublish script content
 #################################### MQTT #####################################
 :local message \
 "{\
-    \"location\":\"whereisit\",\
+    \"location\":\"casa\",\
     \"model\":\"$model\",\
     \"sn\":\"$serialNumber\",\
     \"ros\":\"$rosVersion\",\
@@ -67,7 +76,15 @@ mqttpublish script content
     \"BOXtx\":$BOXtx,\
     \"BOXrx\":$BOXrx,\
     \"wg1tx\":$wg1tx,\
-    \"wg1rx\":$wg1rx\
+    \"wg1rx\":$wg1rx,\
+    \"cputemp\":$cputemp,\
+    \"temperature\":$temperature,\
+    \"voltage\":$voltage,\
+    \"current\":$current,\
+    \"fan1\":$fan1,\
+    \"psu1\":\"$psu1\",\
+    \"psu2\":\"$psu2\",\
+    \"power\":$power\
 }"
 
 #:log info "$message";
@@ -1108,6 +1125,7 @@ you can import my graph or create a new one, but you must setup your datasource
   "version": 46
 }
 ```
+
 
 
 

@@ -103,6 +103,7 @@ password = "password"
 
 https://grafana.panu.it/d/adq7pbn/routers?orgId=1&from=now-6h&to=now&timezone=browser&refresh=30s
 
+![grafana](img/grafana.png)
 
 
 

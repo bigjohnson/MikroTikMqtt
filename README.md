@@ -20,8 +20,9 @@
 ################################ Configuration ################################
 # Name of an existing MQTT broker that should be used for publishing
 :local broker "panu.it"
+
 # MQTT topic where the message should be published
-:local topic "javascript/mikrotic"
+:local topic "microtik/firewallname"
 :put ("[*] Gathering system info...")
 :local cpuLoad [/system resource get cpu-load]
 :local freeMemory [/system resource get free-memory]
@@ -31,17 +32,43 @@
 :local serialNumber [/system routerboard get value-name=serial-number]
 :local upTime [/system resource get uptime]
 
+:local m 1048576
+
+:local WANtx [/interface/get WAN tx-byte]
+:local WANrx [/interface/get WAN rx-byte]
+:local LANtx [/interface/get LAN tx-byte]
+:local LANrx [/interface/get LAN rx-byte]
+:local DEMILtx [/interface/get DEMIL tx-byte]
+:local DEMILrx [/interface/get DEMIL rx-byte]
+:local BOXtx [/interface/get BOX tx-byte]
+:local BOXrx [/interface/get BOX rx-byte]
+:local wg1tx [/interface/get wg1 tx-byte]
+:local wg1rx [/interface/get wg1 rx-byte]
+
 #################################### MQTT #####################################
 :local message \
-"{\"model\":\"$model\",\
+"{\
+    \"location\":\"whereisit\",\
+    \"model\":\"$model\",\
     \"sn\":\"$serialNumber\",\
     \"ros\":\"$rosVersion\",\
     \"cpu\":$cpuLoad,\
     \"umem\":$usedMemory,\
     \"fmem\":$freeMemory,\
-    \"uptime\":\"$upTime\"}"
+    \"uptime\":\"$upTime\",\
+    \"WANtx\":$WANtx,\
+    \"WANrx\":$WANrx,\
+    \"LANtx\":$LANtx,\
+    \"LANrx\":$LANrx,\
+    \"DEMILtx\":$DEMILtx,\
+    \"DEMILrx\":$DEMILrx,\
+    \"BOXtx\":$BOXtx,\
+    \"BOXrx\":$BOXrx,\
+    \"wg1tx\":$wg1tx,\
+    \"wg1rx\":$wg1rx\
+}"
 
-:log info "$message";
+#:log info "$message";
 :put ("[*] Total message size: $[:len $message] bytes")
 :put ("[*] Sending message to MQTT broker...")
 iot mqtt publish broker=$broker topic=$topic message=$message
@@ -49,6 +76,7 @@ iot mqtt publish broker=$broker topic=$topic message=$message
 # for debug purpose
 #:put $message
 ```
+
 
 
 

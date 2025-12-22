@@ -1,4 +1,4 @@
-# How connect MikroTik routers to Mqtt broker, read data with Telegraf, insert them in Influgdb and display with grafana.
+# How connect MikroTik routers to Mqtt broker, read data with Telegraf, insert them in Influxdb and display with grafana.
 ## original document https://help.mikrotik.com/docs/spaces/ROS/pages/46759978/MQTT
 # Mikrotik router config 
 * Install the iot package, from the System/Packages menu.
@@ -15,6 +15,8 @@
 ![create script](img/6_script.png)
 * Run the script and get the result
 ![run script](img/7_run_script.png)
+
+mqttpublish script content
 
 ```
 ################################ Configuration ################################
@@ -1104,6 +1106,7 @@ https://grafana.panu.it/d/adq7pbn/routers?orgId=1&from=now-6h&to=now&timezone=br
   "version": 36
 }
 ```
+
 
 
 

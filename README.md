@@ -414,7 +414,7 @@ you can import my graph or create a new one, but you must setup your datasource
           ]
         }
       ],
-      "title": "Wan Mb",
+      "title": "Wan bytes",
       "type": "timeseries"
     },
     {
@@ -587,7 +587,7 @@ you can import my graph or create a new one, but you must setup your datasource
           ]
         }
       ],
-      "title": "Lan Mb",
+      "title": "Lan bytes",
       "type": "timeseries"
     },
     {
@@ -760,7 +760,7 @@ you can import my graph or create a new one, but you must setup your datasource
           ]
         }
       ],
-      "title": "Down Mb",
+      "title": "Down bytes",
       "type": "timeseries"
     },
     {
@@ -933,7 +933,7 @@ you can import my graph or create a new one, but you must setup your datasource
           ]
         }
       ],
-      "title": "Demil Mb",
+      "title": "Demil bytes",
       "type": "timeseries"
     },
     {
@@ -1106,7 +1106,7 @@ you can import my graph or create a new one, but you must setup your datasource
           ]
         }
       ],
-      "title": "Vpn Mb",
+      "title": "Vpn bytes",
       "type": "timeseries"
     }
   ],
@@ -1125,9 +1125,11 @@ you can import my graph or create a new one, but you must setup your datasource
   "timezone": "browser",
   "title": "Routers",
   "uid": "adq7pbn",
-  "version": 40
+  "version": 45
+}
 }
 ```
+
 
 
 

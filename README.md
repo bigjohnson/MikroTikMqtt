@@ -161,6 +161,31 @@ you can import my graph or create a new one, but you must setup your datasource
   "links": [],
   "panels": [
     {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 14,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "[https://github.com/bigjohnson/MikroTikMqttTelegrafInfluxdbGrafana](https://github.com/bigjohnson/MikroTikMqttTelegrafInfluxdbGrafana)",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.3.1",
+      "title": "Github repo",
+      "type": "text"
+    },
+    {
       "datasource": {
         "type": "influxdb",
         "uid": "000000004"
@@ -190,9 +215,9 @@ you can import my graph or create a new one, but you must setup your datasource
       },
       "gridPos": {
         "h": 5,
-        "w": 6,
+        "w": 4,
         "x": 0,
-        "y": 0
+        "y": 3
       },
       "id": 6,
       "options": {
@@ -292,9 +317,9 @@ you can import my graph or create a new one, but you must setup your datasource
       },
       "gridPos": {
         "h": 5,
-        "w": 3,
-        "x": 6,
-        "y": 0
+        "w": 4,
+        "x": 4,
+        "y": 3
       },
       "id": 8,
       "options": {
@@ -317,6 +342,7 @@ you can import my graph or create a new one, but you must setup your datasource
       "pluginVersion": "12.3.1",
       "targets": [
         {
+          "alias": "Cpu Temperature",
           "datasource": {
             "type": "influxdb",
             "uid": "000000004"
@@ -396,9 +422,9 @@ you can import my graph or create a new one, but you must setup your datasource
       },
       "gridPos": {
         "h": 5,
-        "w": 3,
-        "x": 9,
-        "y": 0
+        "w": 4,
+        "x": 8,
+        "y": 3
       },
       "id": 9,
       "options": {
@@ -421,6 +447,7 @@ you can import my graph or create a new one, but you must setup your datasource
       "pluginVersion": "12.3.1",
       "targets": [
         {
+          "alias": "Temperature",
           "datasource": {
             "type": "influxdb",
             "uid": "000000004"
@@ -485,12 +512,16 @@ you can import my graph or create a new one, but you must setup your datasource
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": 0
               },
               {
+                "color": "green",
+                "value": 24
+              },
+              {
                 "color": "red",
-                "value": 80
+                "value": 90
               }
             ]
           },
@@ -502,7 +533,7 @@ you can import my graph or create a new one, but you must setup your datasource
         "h": 5,
         "w": 3,
         "x": 12,
-        "y": 0
+        "y": 3
       },
       "id": 10,
       "options": {
@@ -525,6 +556,7 @@ you can import my graph or create a new one, but you must setup your datasource
       "pluginVersion": "12.3.1",
       "targets": [
         {
+          "alias": "Volt",
           "datasource": {
             "type": "influxdb",
             "uid": "000000004"
@@ -594,7 +626,7 @@ you can import my graph or create a new one, but you must setup your datasource
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 1000
               }
             ]
           },
@@ -606,7 +638,7 @@ you can import my graph or create a new one, but you must setup your datasource
         "h": 5,
         "w": 3,
         "x": 15,
-        "y": 0
+        "y": 3
       },
       "id": 11,
       "options": {
@@ -629,6 +661,7 @@ you can import my graph or create a new one, but you must setup your datasource
       "pluginVersion": "12.3.1",
       "targets": [
         {
+          "alias": "Ampere",
           "datasource": {
             "type": "influxdb",
             "uid": "000000004"
@@ -710,7 +743,7 @@ you can import my graph or create a new one, but you must setup your datasource
         "h": 5,
         "w": 3,
         "x": 18,
-        "y": 0
+        "y": 3
       },
       "id": 12,
       "options": {
@@ -733,6 +766,7 @@ you can import my graph or create a new one, but you must setup your datasource
       "pluginVersion": "12.3.1",
       "targets": [
         {
+          "alias": "Power",
           "datasource": {
             "type": "influxdb",
             "uid": "000000004"
@@ -814,7 +848,7 @@ you can import my graph or create a new one, but you must setup your datasource
         "h": 5,
         "w": 3,
         "x": 21,
-        "y": 0
+        "y": 3
       },
       "id": 13,
       "options": {
@@ -837,6 +871,7 @@ you can import my graph or create a new one, but you must setup your datasource
       "pluginVersion": "12.3.1",
       "targets": [
         {
+          "alias": "Fan",
           "datasource": {
             "type": "influxdb",
             "uid": "000000004"
@@ -944,7 +979,7 @@ you can import my graph or create a new one, but you must setup your datasource
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "binBps"
         },
         "overrides": []
       },
@@ -952,7 +987,7 @@ you can import my graph or create a new one, but you must setup your datasource
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 8
       },
       "id": 7,
       "options": {
@@ -1015,6 +1050,12 @@ you can import my graph or create a new one, but you must setup your datasource
               },
               {
                 "params": [
+                  " / 300"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
                   "rx"
                 ],
                 "type": "alias"
@@ -1034,6 +1075,12 @@ you can import my graph or create a new one, but you must setup your datasource
               {
                 "params": [],
                 "type": "non_negative_difference"
+              },
+              {
+                "params": [
+                  " / 300"
+                ],
+                "type": "math"
               },
               {
                 "params": [
@@ -1113,7 +1160,7 @@ you can import my graph or create a new one, but you must setup your datasource
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "binBps"
         },
         "overrides": []
       },
@@ -1121,7 +1168,7 @@ you can import my graph or create a new one, but you must setup your datasource
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 16
       },
       "id": 2,
       "options": {
@@ -1184,6 +1231,12 @@ you can import my graph or create a new one, but you must setup your datasource
               },
               {
                 "params": [
+                  " /3100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
                   "rx"
                 ],
                 "type": "alias"
@@ -1203,6 +1256,12 @@ you can import my graph or create a new one, but you must setup your datasource
               {
                 "params": [],
                 "type": "non_negative_difference"
+              },
+              {
+                "params": [
+                  " / 300"
+                ],
+                "type": "math"
               },
               {
                 "params": [
@@ -1282,7 +1341,7 @@ you can import my graph or create a new one, but you must setup your datasource
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "binBps"
         },
         "overrides": []
       },
@@ -1290,7 +1349,7 @@ you can import my graph or create a new one, but you must setup your datasource
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 24
       },
       "id": 3,
       "options": {
@@ -1353,6 +1412,12 @@ you can import my graph or create a new one, but you must setup your datasource
               },
               {
                 "params": [
+                  " / 300"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
                   "rx"
                 ],
                 "type": "alias"
@@ -1372,6 +1437,12 @@ you can import my graph or create a new one, but you must setup your datasource
               {
                 "params": [],
                 "type": "non_negative_difference"
+              },
+              {
+                "params": [
+                  " / 300"
+                ],
+                "type": "math"
               },
               {
                 "params": [
@@ -1459,7 +1530,7 @@ you can import my graph or create a new one, but you must setup your datasource
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 32
       },
       "id": 4,
       "options": {
@@ -1522,6 +1593,12 @@ you can import my graph or create a new one, but you must setup your datasource
               },
               {
                 "params": [
+                  " / 300"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
                   "rx"
                 ],
                 "type": "alias"
@@ -1541,6 +1618,12 @@ you can import my graph or create a new one, but you must setup your datasource
               {
                 "params": [],
                 "type": "non_negative_difference"
+              },
+              {
+                "params": [
+                  " / 300"
+                ],
+                "type": "math"
               },
               {
                 "params": [
@@ -1628,7 +1711,7 @@ you can import my graph or create a new one, but you must setup your datasource
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 37
+        "y": 40
       },
       "id": 5,
       "options": {
@@ -1691,6 +1774,12 @@ you can import my graph or create a new one, but you must setup your datasource
               },
               {
                 "params": [
+                  " / 300"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
                   "rx"
                 ],
                 "type": "alias"
@@ -1710,6 +1799,12 @@ you can import my graph or create a new one, but you must setup your datasource
               {
                 "params": [],
                 "type": "non_negative_difference"
+              },
+              {
+                "params": [
+                  " / 300"
+                ],
+                "type": "math"
               },
               {
                 "params": [
@@ -1740,16 +1835,17 @@ you can import my graph or create a new one, but you must setup your datasource
     "list": []
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Routers",
   "uid": "adq7pbn",
-  "version": 58
+  "version": 92
 }
 ```
+
 
 
 

@@ -100,6 +100,7 @@ and add it to the system/scheduler
 
 ![scheduler](img/scheduler.png)
 
+with the actual Grafana dashboard the correct schedule interval is 5 minutes, not 1.
 whith the On Event content
 
 ```
@@ -1845,6 +1846,7 @@ you can import my graph or create a new one, but you must setup your datasource
   "version": 92
 }
 ```
+
 
 
 
